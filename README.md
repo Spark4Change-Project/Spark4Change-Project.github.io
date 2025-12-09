@@ -1,7 +1,5 @@
 # Spark4Change: San Diego Small Business Survival Analysis
 
-🌐 **Live Website:** [https://Spark4Change-Project.github.io/](https://Spark4Change-Project.github.io/)
-
 ## Project Overview
 Spark4Change investigates the dynamics of local business survival and social impact in San Diego County, analyzing over three decades of business data (1990-present) to understand why businesses fail and which communities face the greatest economic vulnerabilities.
 
@@ -193,5 +191,6 @@ For questions or collaboration opportunities:
 ---
 
 **Made with ❤️ by the Spark4Change Team**
+
 
 *Empowering communities through data-driven insights for economic resilience*
