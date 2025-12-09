@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints
+
+# Large data files (over 50MB - GitHub limit)
+biz_clean_full.csv
+biz_clean_sd_county_only.csv
+sd_businesses_enriched_phase2.csv
+sd_businesses_enriched_phase2.geojson
+sd_businesses_merged_cleaned.csv
+sd_businesses_merged_cleaned_sector_first.csv
+sd_businesses_merged_cleaned_with_naics_sector.csv
+sd_businesses_active_datasd.csv
+sd_businesses_inactive_*.csv
+
+# Trigger files
+.trigger
+.deploy
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spark4Change - Business Survival Analysis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1 class="logo">Spark4Change</h1>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#analysis">Analysis</a></li>
+                    <li><a href="#findings">Findings</a></li>
+                    <li><a href="#visualizations">Visualizations</a></li>
+                    <li><a href="#team">Team</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>The Dynamics of Local Business Survival and Social Impact in San Diego</h1>
+                <p class="subtitle">Understanding business survival patterns through data-driven analysis (1990-2024)</p>
+                <a href="#about" class="cta-button">Explore the Project</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About the Project</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="icon">📊</div>
+                    <h3>Mission</h3>
+                    <p>To understand business survival in San Diego and examine how often local businesses fail over time, identifying communities at risk and factors contributing to business instability.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">🎯</div>
+                    <h3>Objective</h3>
+                    <p>Analyze trends in business openings, closures, and neighborhood-level economic conditions to provide actionable insights for policymakers and economic development organizations.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">💡</div>
+                    <h3>Impact</h3>
+                    <p>Help communities understand where business failure is most common and how targeted interventions can support long-term economic resilience in San Diego.</p>
+                </div>
+            </div>
+
+            <div class="data-sources">
+                <h3>Data Sources</h3>
+                <ul>
+                    <li><strong>City of San Diego Open Data Portal:</strong> Business registrations and closures (1990-2024)</li>
+                    <li><strong>Federal Open-Data Portals:</strong> Unemployment rates and economic indicators</li>
+                    <li><strong>Geographic Data:</strong> Neighborhood boundaries, ZIP codes, council districts</li>
+                    <li><strong>Industry Classification:</strong> NAICS codes and sector descriptions</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="analysis" class="section alt-bg">
+        <div class="container">
+            <h2>Step-by-Step Analysis</h2>
+            
+            <div class="analysis-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Data Collection & Integration</h3>
+                    <p><strong>What we did:</strong> Gathered and merged five separate datasets covering active businesses and inactive businesses across four time periods (1990-2000, 2000-2010, 2010-2015, 2015-current).</p>
+                    <div class="code-block">
+                        <p><strong>Dataset Overview:</strong></p>
+                        <ul>
+                            <li>Active businesses: Current operating businesses</li>
+                            <li>Historical inactive: 4 datasets spanning 35 years</li>
+                            <li>Total records: 400,000+ business entries</li>
+                            <li>Geographic coverage: All San Diego County ZIP codes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Data Cleaning & Standardization</h3>
+                    <p><strong>What we did:</strong> Cleaned and standardized column names, converted date fields, extracted ZIP codes, and created consistent business status flags.</p>
+                    <div class="highlights">
+                        <h4>Key Transformations:</h4>
+                        <ul>
+                            <li>Standardized column names to lowercase with underscores</li>
+                            <li>Converted 4 date columns to datetime format</li>
+                            <li>Extracted clean 5-digit ZIP codes for geographic analysis</li>
+                            <li>Created boolean <code>is_active</code> flag for business status</li>
+                            <li>Removed duplicates and records with missing critical fields</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Geographic Enrichment</h3>
+                    <p><strong>What we did:</strong> Mapped 80+ ZIP codes to specific San Diego neighborhoods and regional clusters for spatial analysis.</p>
+                    <div class="geo-grid">
+                        <div class="geo-cluster">
+                            <h4>North County</h4>
+                            <p>Carlsbad, Oceanside, Escondido, San Marcos, Vista, Poway</p>
+                        </div>
+                        <div class="geo-cluster">
+                            <h4>Central</h4>
+                            <p>Downtown, Hillcrest, North Park, Mission Valley, City Heights</p>
+                        </div>
+                        <div class="geo-cluster">
+                            <h4>East County</h4>
+                            <p>El Cajon, Santee, La Mesa, Alpine, Lakeside</p>
+                        </div>
+                        <div class="geo-cluster">
+                            <h4>South Bay</h4>
+                            <p>Chula Vista, National City, Imperial Beach, San Ysidro</p>
+                        </div>
+                        <div class="geo-cluster">
+                            <h4>West/Coastal</h4>
+                            <p>Point Loma, Ocean Beach, Pacific Beach, La Jolla</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Industry Classification</h3>
+                    <p><strong>What we did:</strong> Categorized businesses using NAICS codes into industry sectors and created higher-level industry clusters.</p>
+                    <div class="industry-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Industry Cluster</th>
+                                    <th>NAICS Codes</th>
+                                    <th>Examples</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Natural Resources & Mining</td>
+                                    <td>11-21</td>
+                                    <td>Agriculture, Mining, Oil & Gas</td>
+                                </tr>
+                                <tr>
+                                    <td>Construction & Utilities</td>
+                                    <td>22-23</td>
+                                    <td>Construction, Utilities</td>
+                                </tr>
+                                <tr>
+                                    <td>Manufacturing</td>
+                                    <td>31-33</td>
+                                    <td>Manufacturing</td>
+                                </tr>
+                                <tr>
+                                    <td>Trade & Transportation</td>
+                                    <td>42-49</td>
+                                    <td>Wholesale, Retail, Transportation</td>
+                                </tr>
+                                <tr>
+                                    <td>Information & Business Services</td>
+                                    <td>51-56</td>
+                                    <td>IT, Finance, Professional Services</td>
+                                </tr>
+                                <tr>
+                                    <td>Education & Health</td>
+                                    <td>61-62</td>
+                                    <td>Schools, Healthcare, Social Services</td>
+                                </tr>
+                                <tr>
+                                    <td>Leisure & Hospitality</td>
+                                    <td>71-72</td>
+                                    <td>Arts, Entertainment, Hotels, Restaurants</td>
+                                </tr>
+                                <tr>
+                                    <td>Other Services & Public</td>
+                                    <td>81-99</td>
+                                    <td>Other Services, Public Administration</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Survival Metrics Calculation</h3>
+                    <p><strong>What we did:</strong> Calculated business duration, closure dates, and survival flags for each business.</p>
+                    <div class="metrics-box">
+                        <h4>Key Metrics Developed:</h4>
+                        <ul>
+                            <li><strong>Closure Date:</strong> Date of business termination (from certificate expiration)</li>
+                            <li><strong>Duration Years:</strong> Time from business start to closure or reference date (2025-01-01)</li>
+                            <li><strong>Survival Flag:</strong> Binary indicator (1 = active, 0 = closed)</li>
+                            <li><strong>Start Year:</strong> Year business began operations</li>
+                            <li><strong>Closure Year:</strong> Year business closed (if applicable)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>Unemployment Correlation Analysis</h3>
+                    <p><strong>What we did:</strong> Integrated San Diego unemployment data and calculated correlations with business closure rates.</p>
+                    <div class="correlation-results">
+                        <div class="stat-card">
+                            <h4>Pearson Correlation</h4>
+                            <p class="big-stat">r = 0.27</p>
+                            <p class="stat-detail">p-value = 0.12</p>
+                            <p class="interpretation">Modest positive linear relationship (not statistically significant at 5% level)</p>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Spearman Correlation</h4>
+                            <p class="big-stat">r = 0.34</p>
+                            <p class="stat-detail">p-value = 0.044</p>
+                            <p class="interpretation">Significant monotonic relationship - higher unemployment correlates with higher closures</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">7</div>
+                <div class="step-content">
+                    <h3>Time-Series Analysis</h3>
+                    <p><strong>What we did:</strong> Calculated yearly closure rates from 1990-2024 by analyzing active business base and annual closures.</p>
+                    <div class="formula-box">
+                        <h4>Closure Rate Formula:</h4>
+                        <p><strong>For each year:</strong></p>
+                        <ul>
+                            <li><strong>Active Base:</strong> Businesses started on/before that year and not yet closed</li>
+                            <li><strong>Closures:</strong> Businesses that closed in that specific year</li>
+                            <li><strong>Closure Rate:</strong> Closures ÷ Active Base</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">8</div>
+                <div class="step-content">
+                    <h3>Sector-Level Analysis</h3>
+                    <p><strong>What we did:</strong> Computed closure rates for each NAICS sector across all years to identify industry-specific patterns.</p>
+                    <div class="output-files">
+                        <h4>Analysis Outputs Generated:</h4>
+                        <ul>
+                            <li><code>sector_year_closure_rate.csv</code> - Closure rates by sector and year</li>
+                            <li><code>sector_year_num_closures.csv</code> - Absolute closure counts</li>
+                            <li><code>industry_cluster_year_closure_rate.csv</code> - Higher-level cluster analysis</li>
+                            <li><code>yearly_closure_unemployment.csv</code> - Merged economic indicators</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">9</div>
+                <div class="step-content">
+                    <h3>Kaplan-Meier Survival Analysis</h3>
+                    <p><strong>What we did:</strong> Used survival analysis techniques to model business longevity and create survival probability curves.</p>
+                    <div class="survival-box">
+                        <h4>Survival Analysis Insights:</h4>
+                        <ul>
+                            <li>Overall survival curves showing probability of remaining active over time</li>
+                            <li>Sector-specific survival curves for top 6 industries</li>
+                            <li>Identification of critical "valley of death" period (years 1-5)</li>
+                            <li>~50% of businesses survive past 5 years</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="analysis-step">
+                <div class="step-number">10</div>
+                <div class="step-content">
+                    <h3>Cox Proportional Hazards Modeling</h3>
+                    <p><strong>What we did:</strong> Built multivariate regression model to quantify sector-specific and temporal effects on business closure risk.</p>
+                    <div class="cox-model">
+                        <h4>Model Specification:</h4>
+                        <ul>
+                            <li><strong>Outcome:</strong> Time until closure (duration_years) with event indicator</li>
+                            <li><strong>Covariates:</strong> Start year (continuous) + Sector (categorical)</li>
+                            <li><strong>Key Finding:</strong> Strong heterogeneity in closure hazard across sectors</li>
+                            <li><strong>Temporal Effect:</strong> Recent cohorts have slightly lower closure hazard</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="findings" class="section">
+        <div class="container">
+            <h2>Key Findings</h2>
+            
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <div class="finding-icon">📉</div>
+                    <h3>Economic Correlation</h3>
+                    <p>Statistically significant correlation (Spearman r = 0.34, p = 0.044) between unemployment rates and business closure rates. Economic downturns increase closure risk, but multiple factors influence business survival.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">📅</div>
+                    <h3>Temporal Patterns</h3>
+                    <p>Most closures occur within first 3-5 years ("valley of death"). Recent business cohorts show improved survival rates. Major closure spikes align with recessions (2001, 2008-2009, COVID-19).</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🏢</div>
+                    <h3>Sector Vulnerability</h3>
+                    <p><strong>High-risk:</strong> Accommodation & Food Services, Retail Trade, Arts & Entertainment<br>
+                    <strong>Stable:</strong> Professional Services, Healthcare, Finance & Insurance</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">🗺️</div>
+                    <h3>Geographic Disparities</h3>
+                    <p>North County shows generally stable business environment. South Bay and parts of East County experience higher closure rates. Central San Diego has high density with mixed survival outcomes.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">⏱️</div>
+                    <h3>Critical Period</h3>
+                    <p>First 5 years are critical for business survival. Approximately 50% of businesses survive past this threshold. Businesses surviving beyond 5 years show significantly improved long-term prospects.</p>
+                </div>
+
+                <div class="finding-card">
+                    <div class="finding-icon">📊</div>
+                    <h3>Statistical Significance</h3>
+                    <p>Cox regression model confirms strong sector heterogeneity independent of time effects. Some sectors have 2-3x higher closure hazard than others, controlling for cohort effects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="visualizations" class="section alt-bg">
+        <div class="container">
+            <h2>Visualizations</h2>
+            
+            <div class="viz-grid">
+                <div class="viz-card">
+                    <h3>Overall Survival Curve</h3>
+                    <div class="viz-placeholder">
+                        <img src="km_overall_survival_clean.png" alt="Kaplan-Meier Overall Survival Curve">
+                    </div>
+                    <p>Kaplan-Meier curve showing overall business survival probability over time since startup.</p>
+                </div>
+
+                <div class="viz-card">
+                    <h3>Sector-Specific Survival</h3>
+                    <div class="viz-placeholder">
+                        <img src="km_sector_top6_survival_clean.png" alt="Sector-Specific Survival Curves">
+                    </div>
+                    <p>Comparative survival curves for the six most common industry sectors, revealing dramatic differences in longevity.</p>
+                </div>
+            </div>
+
+            <div class="tableau-dashboards">
+                <h3>Interactive Tableau Dashboards</h3>
+                <div class="dashboard-grid">
+                    <div class="dashboard-item">
+                        <h4>📊 Active/Inactive Business Trends</h4>
+                        <p>Time-series visualizations showing business counts by sector, neighborhood, and year with interactive filtering.</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h4>🔥 Closure Rate Heatmap</h4>
+                        <p>Color-coded visualization of annual closure rates by industry sector from 1990-2024.</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h4>📍 Geographic Closure Distribution</h4>
+                        <p>Spatial visualization of closure counts across San Diego neighborhoods and ZIP codes.</p>
+                    </div>
+                    <div class="dashboard-item">
+                        <h4>💼 Unemployment Correlation</h4>
+                        <p>Dual-axis charts and scatter plots showing relationships between unemployment and closure metrics.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="recommendations" class="section">
+        <div class="container">
+            <h2>Recommendations & Impact</h2>
+            
+            <div class="recommendations">
+                <div class="rec-category">
+                    <h3>For Policymakers</h3>
+                    <ul>
+                        <li>Launch "First Five Years" support program targeting critical early-stage period</li>
+                        <li>Create sector-specific intervention plans for high-risk industries</li>
+                        <li>Develop economic shock response fund for unemployment spike periods</li>
+                        <li>Implement geographic equity initiatives in vulnerable neighborhoods</li>
+                        <li>Establish quarterly business health monitoring system</li>
+                    </ul>
+                </div>
+
+                <div class="rec-category">
+                    <h3>For Economic Development Organizations</h3>
+                    <ul>
+                        <li>Build sector-specific mentorship programs pairing new with established businesses</li>
+                        <li>Deploy targeted resources to South Bay and East County areas</li>
+                        <li>Create real-time business health dashboard with predictive analytics</li>
+                        <li>Offer subsidized consulting services during startup phase</li>
+                        <li>Facilitate industry cluster initiatives for peer support</li>
+                    </ul>
+                </div>
+
+                <div class="rec-category">
+                    <h3>For Community Organizations</h3>
+                    <ul>
+                        <li>Strengthen neighborhood business associations and networks</li>
+                        <li>Expand microfinance and community lending programs</li>
+                        <li>Organize regular networking and peer learning events</li>
+                        <li>Create collective purchasing programs to reduce costs</li>
+                        <li>Provide financial literacy and management training</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="expected-impact">
+                <h3>Expected Impact</h3>
+                <div class="impact-stats">
+                    <div class="impact-item">
+                        <span class="impact-number">10-15%</span>
+                        <span class="impact-label">Reduction in early-stage closures (years 0-5)</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">More Equitable</span>
+                        <span class="impact-label">Distribution of business success across neighborhoods</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">Faster Recovery</span>
+                        <span class="impact-label">During economic downturns through proactive support</span>
+                    </div>
+                    <div class="impact-item">
+                        <span class="impact-number">Data-Informed</span>
+                        <span class="impact-label">Policy replacing reactive, crisis-driven interventions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="section alt-bg">
+        <div class="container">
+            <h2>Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-photo">SR</div>
+                    <h3>Swasthika Rajendran</h3>
+                    <p class="role">Data Analyst</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">AP</div>
+                    <h3>Aneesha Prasad</h3>
+                    <p class="role">Data Scientist</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">SD</div>
+                    <h3>Sudeshna Das Rochi</h3>
+                    <p class="role">Statistical Analyst</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-photo">SK</div>
+                    <h3>Sahitya Kotla</h3>
+                    <p class="role">Visualization Specialist</p>
+                </div>
+            </div>
+
+            <div class="methodology-tools">
+                <h3>Tools & Technologies</h3>
+                <div class="tools-grid">
+                    <div class="tool">Python</div>
+                    <div class="tool">Pandas</div>
+                    <div class="tool">Lifelines</div>
+                    <div class="tool">SciPy</div>
+                    <div class="tool">Tableau</div>
+                    <div class="tool">ArcGIS</div>
+                    <div class="tool">Matplotlib</div>
+                    <div class="tool">Jupyter</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Spark4Change</h4>
+                    <p>Data-driven insights for economic resilience in San Diego</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="https://github.com/Spark4Change-Project">GitHub Organization</a></li>
+                        <li><a href="https://github.com/Spark4Change-Project/Spark4Change-Project.github.io">GitHub Repository</a></li>
+                        <li><a href="https://sites.google.com/view/spark4change">Original Website</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>For collaboration opportunities, visit our project repository</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Spark4Change Team. Educational Research Project.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
